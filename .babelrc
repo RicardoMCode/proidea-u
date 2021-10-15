@@ -1,0 +1,8 @@
+//Create an object with the config for 
+//Babel to identify the dowloaded presets
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+}
