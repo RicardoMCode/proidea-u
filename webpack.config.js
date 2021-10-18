@@ -12,13 +12,19 @@ module.exports = {
     mode: 'development',
     resolve: {
         extensions: ['.js', '.jsx'],
+        //Add aliases for managing directory paths
+        alias: {
+            '@logos': path.resolve(__dirname, 'src/assets/logos/'),
+            '@styles' : path.resolve(__dirname, 'src/styles/'),
+        }
     },
     module: {
         rules: [
             {
-                //Se especifica los elementos con lo que se trabajará
+                // This is repeated for each package, this is from Babel, then there is the html one and finally the css one
+                // The elements to be worked with are specified
                 test: /\.(js|jsx)$/,
-                //Se excluye lo que no se quiere que lea el WP
+                //What you don't want the WP to read is excluded
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -31,6 +37,18 @@ module.exports = {
                         loader: 'html-loader'
                     }
                 ]
+            },
+            {
+                test:/\.css$/,
+                use: [
+                  'style-loader',
+                  'css-loader'
+                ]
+            },
+            //images managing in wp
+            {
+                test:/\.(png|jpg|ico)$/,
+                type: 'asset'
             }
         ]
     },

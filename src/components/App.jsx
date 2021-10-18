@@ -1,8 +1,14 @@
 import React from "react";
-//Create the Style component
+import Layout from "../containers/Layout";
+import Login from "../containers/login";
+import Register from "../containers/register";
+//Acá es en donde se renderizan los componentes
 const App = () => {
-    return (
-        <h1>Initial config</h1>
+    return(
+        <Layout>
+            <Login />
+            <Register />
+        </Layout>
     );
 }
 

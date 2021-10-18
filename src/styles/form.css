@@ -1,0 +1,21 @@
+/*Botones*/
+.form_combo_btn {
+    width: 60%;
+    margin: 1rem;
+}
+.form_combo_btn_content {
+    text-align: center;
+    padding: 1rem 0 0 0;
+}
+/*Logo en los formularios*/
+.form_logo_content {
+    text-align: center;
+}
+.form_logo_style {
+    width: 140px;
+    margin: 1rem;
+}
+/*Label he input*/
+.form_lbl_inpt_groupe {
+    margin: 1rem 0 1rem 0;
+}
