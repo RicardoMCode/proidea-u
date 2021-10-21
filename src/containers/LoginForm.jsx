@@ -1,13 +1,16 @@
-import React from "react";
+import React from 'react';
+//Import CSS
+import '@styles/form.css';
+import LogoU from '../components/LogoU';
 
-const Login = () => {
+const LoginForm = () => {
   return (
-    <div className="card text-center">
+    <div className="card text-center container">
       <div className="card-body">
         <h4 className="card-title">Ingreso al sistema</h4>
         <hr />
         <form>
-          <div className="form-group">
+          <div className="form_lbl_inpt_groupe">
             <input
               type="email"
               className="form-control"
@@ -17,7 +20,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form_lbl_input_groupe">
             <input
               type="password"
               className="form-control"
@@ -27,32 +30,32 @@ const Login = () => {
               required
             />
           </div>
-          <div className="btn btn-block">
+          <div className="col-sm d-grid gap-2">
             <button
               //href="view_proponent.html"
               type="button"
-              className="btn btn-success btn-sm btn-block"
+              className="btn btn-success btn-sm "
             >
               Ingresar
             </button>
-          </div>
-          <div className="btn btn-block mt-0">
             <button
               type="button"
-              className="btn btn-primary btn-sm btn-block"
+              className="btn btn-primary btn-sm "
               data-bs-toggle="modal"
+              //Call to register container
               data-bs-target="#registerModal"
             >
               Registrate aquí
             </button>
           </div>
-          <br />
+          <br/>
           <a href="#titulo">¿Olvidaste tu contraseña?</a>
+          <br/>
         </form>
-          {/* <img className="card-img-bottom" src={logoU}  alt="Logo Universidad" style={{width:"80%", margin:"auto", marginBottom:"5%"}}/> */}
+        <LogoU />
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginForm;

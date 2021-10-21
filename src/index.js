@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Import CSS
-import "./styles/global.css";
-//Import the React components 
-import App from './components/App';
+import './styles/global.css';
+//Import the routes 
+import App from './routes/App';
 
 ReactDOM.render(<App />, document.getElementById('app'))

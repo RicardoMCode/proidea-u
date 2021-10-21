@@ -1,8 +1,9 @@
-import React from "react";
-import Logo_for_forms from "../components/Logo_for_forms";
-import Personal_data_form from "../components/Personal_data_form";
+import React from 'react';
+import LogoForForms from '../components/LogoForForms';
+import PersonalDataForm from '../components/PersonalDataForm';
 //Import CSS
-import "@styles/modal.css";
+import '@styles/modal.css';
+import '@styles/form.css';
 
 const Register = () => {
   return (
@@ -19,26 +20,21 @@ const Register = () => {
               </h4>
               <br />
             </div>
-            <Personal_data_form /> 
+            <PersonalDataForm /> 
             {/* Buttons            */}
             <div className="row justify-content-around button-group">
                 <div className="col-sm-6 form_combo_btn_content">
-                  <button
-                    type="submit"
-                    className="btn btn-primary form_combo_btn"
+                  <button type="submit" className="btn btn-primary item_combo_btn"
                     // onClick={addUserProp}
                   >
                     Registrarse
                   </button>
-                  <button
-                    type="button"
-                    className="btn btn-secondary form_combo_btn"
-                    data-dismiss="modal"
+                  <button type="button" className="btn btn-secondary item_combo_btn" data-bs-dismiss="modal"
                   >
                     Cancelar
                   </button>
                 </div>
-                <Logo_for_forms />
+                <LogoForForms />
             </div>
           </div>
         </div>

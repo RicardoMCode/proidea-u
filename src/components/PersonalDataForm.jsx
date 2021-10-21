@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 //Import CSS
-import "@styles/form.css";
-const Personal_data_form = () => {
+import '@styles/form.css';
+const PersonalDataForm = () => {
   return (
     <div>
       <form className="modal-body" autoComplete="off">
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label htmlFor="RolSelect">Rol:</label>
           </div>
@@ -29,7 +29,7 @@ const Personal_data_form = () => {
             </select>
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Nombre completo:</label>
           </div>
@@ -44,7 +44,7 @@ const Personal_data_form = () => {
             />
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label htmlFor="TypeIdSelect">Tipo de identificación:</label>
           </div>
@@ -65,7 +65,7 @@ const Personal_data_form = () => {
             </select>
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Número de identificación:</label>
           </div>
@@ -81,7 +81,7 @@ const Personal_data_form = () => {
             />
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Correo electrónico:</label>
           </div>
@@ -97,7 +97,7 @@ const Personal_data_form = () => {
             />
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Asigne una contraseña:</label>
           </div>
@@ -114,7 +114,7 @@ const Personal_data_form = () => {
             />
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Celulares de contacto:</label>
           </div>
@@ -144,7 +144,7 @@ const Personal_data_form = () => {
             />
           </div>
         </div>
-        <div className="form_lbl_inpt_groupe row">
+        <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Dirección:</label>
           </div>
@@ -165,4 +165,4 @@ const Personal_data_form = () => {
   );
 };
 
-export default Personal_data_form;
+export default PersonalDataForm;
