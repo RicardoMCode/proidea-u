@@ -6,7 +6,6 @@ import NotFound from '../pages/NotFound';
 import ProponentMenu from '../pages/ProponentMenu';
 import AnalistMenu from '../pages/AnalistMenu';
 import AdminMenu from '../pages/AdminMenu';
-import RecoveryPassword from '../pages/RecoveryPassword';
 //Acá es en donde se renderizan los componentes
 const App = () => {
   return (
@@ -17,7 +16,6 @@ const App = () => {
           <Route exact path="/proponent-menu/" component={ProponentMenu} />
           <Route exact path="/analist-menu/" component={AnalistMenu} />
           <Route exact path="/admin-menu/" component={AdminMenu} />
-          <Route exact path="/recovery-pass" component={RecoveryPassword} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

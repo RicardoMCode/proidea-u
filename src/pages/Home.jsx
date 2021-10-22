@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from '../containers/LoginForm';
+import RecoveryPass from '../containers/RecoveryPass';
 import Register from '../containers/register';
 import logo from '@logos/logo.png';
 import VideoHome from '../components/VideoHome';
@@ -30,6 +31,7 @@ const Home = () => {
         </div>
       </div>
       <Register />
+      <RecoveryPass />
       <VideoHome />
       <Footer />
     </>

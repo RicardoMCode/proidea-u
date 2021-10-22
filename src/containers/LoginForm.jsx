@@ -42,14 +42,17 @@ const LoginForm = () => {
               type="button"
               className="btn btn-primary btn-sm "
               data-bs-toggle="modal"
-              //Call to register container
+              //Call to register modal container
               data-bs-target="#registerModal"
             >
               Registrate aquí
             </button>
           </div>
           <br/>
-          <a href="#titulo">¿Olvidaste tu contraseña?</a>
+          <a href="#"
+              data-bs-toggle="modal"
+              //Call to recovery modal container
+              data-bs-target="#recoveryPassModal">¿Olvidaste tu contraseña?</a>
           <br/>
         </form>
         <LogoU />
