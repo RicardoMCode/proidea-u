@@ -1,0 +1,19 @@
+.notfound {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.notfound_content {
+    background-color: #ffff;
+    min-height: 50%;
+    width: 75%;
+    box-shadow: -4px 4px 68px -10px rgba(0,0,0,0.75);
+    border-radius: 9px 9px 9px 9px;
+    text-align: center;
+    padding: 3rem;
+}
+.notfound_image {
+    width: 30%;
+    margin: .5rem;
+}

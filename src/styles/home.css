@@ -1,0 +1,16 @@
+.home {
+    padding-top: 2rem;
+}
+.video_home {
+    max-width: 20rem;
+    min-width: 1rem;
+    height: 12.5rem;
+    margin: calc(4rem - 16px) 0 calc(4rem - 24px) 0;
+    border-radius: 9px 9px 9px 9px;
+}
+.row_item {
+    margin: 1rem;
+}
+.img {
+    height: 100%;
+}
