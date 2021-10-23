@@ -1,11 +1,11 @@
 import React from 'react';
 
-const VideoHome = () => {
+const VideoLogin = () => {
   return (
       <section>
         <div class="d-flex justify-content-center">
               <iframe
-                class="video_home"
+                class="video_login"
                 src="https://www.youtube.com/embed/LBL7C9I0rrU"
                 title="Video-Udi"
                 frameborder="0"
@@ -17,4 +17,4 @@ const VideoHome = () => {
   );
 };
 
-export default VideoHome;
+export default VideoLogin;

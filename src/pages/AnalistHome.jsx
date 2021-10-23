@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AnalistMenu = () => {
+const AnalistHome = () => {
     return (
         <>
             Menú analista
@@ -8,4 +8,4 @@ const AnalistMenu = () => {
     );
 };
 
-export default AnalistMenu;
+export default AnalistHome;

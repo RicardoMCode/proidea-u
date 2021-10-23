@@ -1,26 +1,25 @@
 import React from 'react';
 import { BrowserRouter , Switch, Route } from 'react-router-dom';
 import Layout from '../containers/Layout';
-import Home from '../pages/Home';
+import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
-import ProponentMenu from '../pages/ProponentMenu';
-import AnalistMenu from '../pages/AnalistMenu';
-import AdminMenu from '../pages/AdminMenu';
+import ProponentHome from '../pages/ProponentHome';
+import AnalistHome from '../pages/AnalistHome';
+import AdminHome from '../pages/AdminHome';
 //Acá es en donde se renderizan los componentes
 const App = () => {
   return (
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/proponent-menu/" component={ProponentMenu} />
-          <Route exact path="/analist-menu/" component={AnalistMenu} />
-          <Route exact path="/admin-menu/" component={AdminMenu} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/proponent-home/" component={ProponentHome} />
+          <Route exact path="/analist-home/" component={AnalistHome} />
+          <Route exact path="/admin-home/" component={AdminHome} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
     </BrowserRouter>
   );
 };
-
 export default App;

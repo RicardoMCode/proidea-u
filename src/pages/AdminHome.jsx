@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AdminMenu = () => {
+const AdminHome = () => {
     return (
         <>
             Menú administrador
@@ -8,4 +8,4 @@ const AdminMenu = () => {
     );
 };
 
-export default AdminMenu;
+export default AdminHome;

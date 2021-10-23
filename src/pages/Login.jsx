@@ -3,14 +3,14 @@ import LoginForm from '../containers/LoginForm';
 import RecoveryPass from '../containers/RecoveryPass';
 import Register from '../containers/Register';
 import logo from '@logos/logo.png';
-import VideoHome from '../components/VideoHome';
+import VideoHome from '../components/VideoLogin';
 import Footer from '../components/Footer';
-import '@styles/home.css';
+import '@styles/login.css';
 
-const Home = () => {
+const Login = () => {
   return (
     <>
-      <div className="home container">
+      <div className="login container">
         <div className="row justify-content-around">
           {/* <!--login block--> */}
           <div className="col-md-4 row_item">
@@ -38,4 +38,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
