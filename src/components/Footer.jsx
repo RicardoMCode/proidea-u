@@ -4,7 +4,7 @@ import '@styles/footer.css';
 const a = "";
 const Footer = () => {
   return (
-      <footer class="footer text-center">
+      <footer className="footer text-center">
         {/* Copyright */}
         <div
           className="text-center p-3 mt-4"

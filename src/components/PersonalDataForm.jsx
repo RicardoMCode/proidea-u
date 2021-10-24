@@ -4,7 +4,7 @@ import '@styles/form.css';
 const PersonalDataForm = () => {
   return (
     <div>
-      <form className="modal-body" autoComplete="off">
+      <form id="DataForm" className="modal-body" autoComplete="off">
         <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label htmlFor="RolSelect">Rol:</label>
@@ -54,6 +54,7 @@ const PersonalDataForm = () => {
               className="form-select"
               id="TypeIdSelect"
               name="TypeId"
+              required
               // onChange={(event) => {
               //   setTypeId(event.currentTarget.value);
               // }}

@@ -1,7 +1,15 @@
 .home {
-    padding-top: 2rem;
     margin: auto; 
 }
 .home_module {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+.home_name {
+    margin: 1rem 0 1rem 0;
+    text-align: right;
+    color: #DDDECB;
+    font-size: large;
+}
+.home_name_bold {
+    font-weight: bold;
 }

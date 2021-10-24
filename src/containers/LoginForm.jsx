@@ -1,15 +1,26 @@
-import React from 'react';
+import React , {useRef} from 'react';
 //Import CSS
 import '@styles/form.css';
 import LogoU from '../components/LogoU';
 
 const LoginForm = () => {
+  const form = useRef(null);
+
+  const handleSubmit = () => {
+    const formData = new FormData(form.current);
+    const data = {
+      usename: formData.get('email'),
+      usepass: formData.get('pwd')
+    }
+    console.log(data);
+  }
+
   return (
-    <div className="card text-center container">
+    <div className="card text-center container" id="LoginForm">
       <div className="card-body">
         <h4 className="card-title">Ingreso al sistema</h4>
         <hr />
-        <form>
+        <form ref={form} >
           <div className="form_lbl_inpt_groupe">
             <input
               type="email"
@@ -26,15 +37,15 @@ const LoginForm = () => {
               className="form-control"
               id="pwd"
               placeholder="Contraseña"
-              name="pswd"
+              name="pwd"
               required
             />
           </div>
           <div className="col-sm d-grid gap-2">
             <button
-              //href="view_proponent.html"
-              type="button"
+              type="submit"
               className="btn btn-success btn-sm "
+              onClick={handleSubmit}
             >
               Ingresar
             </button>

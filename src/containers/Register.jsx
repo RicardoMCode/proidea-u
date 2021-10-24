@@ -28,7 +28,7 @@ const Register = () => {
               <button
                 type="submit"
                 className="btn btn-primary item_combo_btn"
-                // onClick={addUserProp}
+                form="DataForm"
               >
                 Registrarse
               </button>
