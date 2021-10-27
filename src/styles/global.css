@@ -11,6 +11,7 @@ body {
 .card {
     box-shadow: -4px 4px 68px -10px rgba(0,0,0,0.75);
     color: #606060;
+    height: 100%;
 }
 
 
