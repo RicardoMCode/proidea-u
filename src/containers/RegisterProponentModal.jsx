@@ -5,12 +5,12 @@ import PersonalDataForm from "../components/PersonalDataForm";
 import "@styles/modal.css";
 import "@styles/form.css";
 
-const Register = () => {
+const RegisterProponentModal = () => {
   return (
     // This modal is activated from the register botton on the login page
     <div className="modal fade" id="registerModal">
       <div className="modal-dialog modal-lg">
-        <div className="modal-content modal-register">
+        <div className="modal-content">
           <div className="modal-header-center">
             <button
               type="button"
@@ -48,4 +48,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterProponentModal;

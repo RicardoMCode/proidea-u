@@ -6,6 +6,7 @@ import NotFound from '../pages/NotFound';
 import ProponentHome from '../pages/ProponentHome';
 import AnalistHome from '../pages/AnalistHome';
 import AdminHome from '../pages/AdminHome';
+import Footer from '../components/Footer';
 //Acá es en donde se renderizan los componentes
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route exact path="/admin-home/" component={AdminHome} />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </Layout>
     </BrowserRouter>
   );

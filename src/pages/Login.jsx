@@ -1,10 +1,9 @@
 import React from 'react';
 import LoginForm from '../containers/LoginForm';
 import RecoveryPass from '../containers/RecoveryPass';
-import Register from '../containers/Register';
+import RegisterProponentModal from '../containers/RegisterProponentModal';
 import logo from '@logos/logo.png';
 import VideoHome from '../components/VideoLogin';
-import Footer from '../components/Footer';
 import '@styles/login.css';
 
 const Login = () => {
@@ -30,10 +29,9 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <Register />
+      <RegisterProponentModal />
       <RecoveryPass />
       <VideoHome />
-      <Footer />
     </>
   );
 };
