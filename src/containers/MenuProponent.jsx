@@ -1,26 +1,13 @@
-import React, { useContext } from "react";
-// import ProponentContext from "../context/ProponentContext";
+import React from "react";
 //Import CSS
-import '@styles/menuProponent.css';
+import '@styles/menu.css';
 
 const MenuProponent = () => {
-  //const { addToModule, state } = useContext(ProponentContext);
-  //Forma adecuada para actualizar el hook creado
-  // const handleClick = () => {
-  //     addToModule(ProponentProyects, "Proyectos presentados");
-  //   // }
-  //   <button
-  //   type="button"
-  //   className="btn btn-success btn-sm "
-  //   onClick={handleClick}
-  // >
-  //   Ver proyectos presentados
-  // </button>
   return (
     <div>
       <button
         type="button"
-        className="menu_proponent_buton"
+        className="menu_buton"
         data-bs-toggle="modal"
         //Call to register modal container
         data-bs-target="#registerIdeaModal"
@@ -30,7 +17,7 @@ const MenuProponent = () => {
       
       <button
         type="button"
-        className="menu_proponent_buton"
+        className="menu_buton"
         data-bs-toggle="modal"
         //Call to register modal container
         data-bs-target="#UpdateProponentModal"
@@ -40,7 +27,7 @@ const MenuProponent = () => {
       
       <button
         type="button"
-        className="menu_proponent_buton"
+        className="menu_buton"
         data-bs-toggle="modal"
         //Call to register modal container
         data-bs-target="#requestToAdminModal"

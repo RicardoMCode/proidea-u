@@ -1,8 +1,11 @@
 .home {
     margin: auto; 
+    display: flex;
+    justify-content: space-around;
 }
 .home_module {
     margin-bottom: 1rem;
+    max-width: 28rem;
 }
 .home_name {
     margin: 1rem 0 1rem 0;
@@ -26,10 +29,33 @@
     border: none;
     background-color:rgba(96,96,96,0.5);
     transition: all 0.5s;
-    border-radius: .5rem;
+    border-radius: .2rem;
 }
 
 .home_exit_button:hover {
     box-shadow: 0px 0px 16px rgba(255,0,0);
     background-color: rgba(255,0,0);
   }
+
+.home_analist {
+    min-height: 300px;
+    margin: 0 12px 0 12px;
+    display: flex;
+    justify-content: space-around;
+} 
+.home_list_content {
+    
+    padding-top: 12px;
+    min-height: 300px;
+    background-color: #ffff;
+    box-shadow: -4px 4px 68px -10px rgba(0,0,0,0.75);
+    margin-bottom: 15px;
+}
+
+.home_menu_analist_content {
+    min-height: 300px;
+    background-color: #496877;
+    border: solid #999999 2px;
+    box-shadow: -4px 4px 68px -10px rgba(0,0,0,0.75);
+    margin-bottom: 15px;
+}
