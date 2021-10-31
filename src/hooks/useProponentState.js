@@ -4,6 +4,7 @@ import MenuProponent from '../containers/MenuProponent';
 const proponentState = {
     moduleType: MenuProponent ,
     moduleName: "Esto se cambia en Hooks->useProponentState" ,
+    userName: "Nombre del Usuario desde el Hook",
 }
 
 const useProponentState = () => {

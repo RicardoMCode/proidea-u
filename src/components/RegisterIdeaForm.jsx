@@ -103,7 +103,7 @@ const RegisterIdeaForm = () => {
             <textarea
               className="form-control"
               id="descriptionIdeaTextarea"
-              rows="5"
+              rows="3"
             ></textarea>
           </div>
 
@@ -114,7 +114,7 @@ const RegisterIdeaForm = () => {
             <textarea
               className="form-control"
               id="comentIdeaTextarea"
-              rows="3"
+              rows="2"
             ></textarea>
           </div>
 

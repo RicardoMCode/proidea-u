@@ -2,7 +2,7 @@ import React from 'react';
 import LogoForForms from '../components/LogoForForms';
 import PersonalDataForm from '../components/PersonalDataForm';
 
-const UpdateProponentData = () => {
+const UpdateProponentDataModal = () => {
     return (
       // This modal is activated from the register botton on the login page
       <div className="modal fade" id="UpdateProponentModal">
@@ -45,4 +45,4 @@ const UpdateProponentData = () => {
     );
   };
 
-export default UpdateProponentData;
+export default UpdateProponentDataModal;
