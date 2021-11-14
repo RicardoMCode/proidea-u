@@ -35,7 +35,7 @@ function projectRequest() {
 
   //Metodo GET que consulta el proyecto en la capa API del back
   async function getProjectById(id) {
-      await Axios.get(BaseUrl + id)
+      return await Axios.get(BaseUrl + id)
   }
 
   return { createProject, getProjectById };

@@ -28,3 +28,14 @@
 .form_block {
     padding: .8rem;
 }
+
+/*Label y label*/
+.form_lbl_lbl_groupe {
+    padding: .2rem;
+    border-radius: .2rem;
+    margin: 1rem 0 0 0;
+    background-color: #E5E5E5;
+}
+.form_block {
+    padding: .8rem;
+}
