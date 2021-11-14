@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+//Coolkies
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 //Components and Containers
 import HomeModule from "../containers/HomeModule";
 import MenuProponent from "../containers/MenuProponent";
@@ -6,18 +9,19 @@ import RegisterIdeaModal from "../containers/RegisterIdeaModal";
 import UpdateProponentDataModal from "../containers/UpdateProponentDataModal";
 import RequestToAdminModal from "../containers/RequestToAdminModal";
 import ExitButton from "../components/ExitButton";
-//Context
-import UserContext from "../context/UserContext";
-import useUserState from "../hooks/useUserState";
 //CSS
 import "@styles/home.css";
 import ImportantDates from "../containers/ImportantDates";
 import CurrentUser from "../components/CurrentUser";
 
 const ProponentHome = () => {
-  const userState = useUserState();
+  useEffect (
+    () => {
+      if (!cookies.get('userEmail')) window.location.href = "/";
+    },[]
+  );
   return (
-    <UserContext.Provider value={userState}>
+    <>
       <div className="home row">
         <CurrentUser />
         <div className="col-sm-4 home_module">
@@ -28,7 +32,7 @@ const ProponentHome = () => {
         </div>
         <div className="col-sm-4 home_module">
           <HomeModule
-            title= "Ideas presentadas"
+            title="Ideas presentadas"
             moduleType={<ImportantDates />}
           ></HomeModule>
         </div>
@@ -39,12 +43,11 @@ const ProponentHome = () => {
           ></HomeModule>
         </div>
       </div>
-
       <RegisterIdeaModal />
       <RequestToAdminModal />
       <UpdateProponentDataModal />
       <ExitButton />
-    </UserContext.Provider>
+    </>
   );
 };
 

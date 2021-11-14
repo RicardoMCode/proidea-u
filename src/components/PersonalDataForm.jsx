@@ -1,7 +1,51 @@
-import React from 'react';
+import React, { useState } from "react";
+//request to APi
+import userRequest from "../requests/userRequest";
 //Import CSS
-import '@styles/form.css';
+import "@styles/form.css";
+import LogoForForms from "./LogoForForms";
+
 const PersonalDataForm = () => {
+  //Creo los estados del formulario
+  const [role, setRole] = useState("");
+  const [name, setName] = useState("");
+  const [typeId, setTypeId] = useState("");
+  const [id, setId] = useState(0);
+  const [mail, setMail] = useState("");
+  const [pass, setPass] = useState("");
+  const [pass2, setPass2] = useState("");
+  const [phone1, setPhone1] = useState("");
+  const [phone2, setPhone2] = useState("");
+  const [address, setAddress] = useState("");
+  //Instanció request - modulo para las insersiones
+  const { createUser } = userRequest();
+  //Creamos un metodo para agregar usuario, se hacen las validaciones y la petición desde los modulos importados
+  const addUserProponent = (e) => {
+    //Valido campos vacios
+    if(role == "" || name == "" || typeId == "" || id == "" || mail == "" || pass == "" || phone1 == "" || address == "") {
+      alert("Debe registrar la información completa en el formulario");
+    }
+    else {    
+      //Var que valida si se crea o no el usuario
+      let create = null;
+      //Confirmamos la contraseña
+      if(pass2 === pass)
+      {
+        create = createUser(role, name, typeId, id, mail, pass, phone1, phone2, address);
+        if (create === true)
+          alert("Usuario proponente creado con éxito")
+        else if (create === false) 
+          alert("Usuario ya registrado, intentelo de nuevo o dirijase a la opción para recuperar cuenta")
+      }
+      else
+      {
+         e.preventDefault();
+         alert("Las contraseñas no coinciden");
+      }  
+    } 
+  };
+
+  //COMPONENT
   return (
     <div>
       <form id="DataForm" className="modal-body" autoComplete="off">
@@ -15,9 +59,9 @@ const PersonalDataForm = () => {
               className="form-select"
               id="RolSelect"
               name="Rol"
-              // onChange={(event) => {
-              //   setRole(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setRole(event.currentTarget.value);
+              }}
               required
             >
               <option></option>
@@ -37,9 +81,9 @@ const PersonalDataForm = () => {
             <input
               type="text"
               className="form-control"
-              // onChange={(event) => {
-              //   setName(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setName(event.currentTarget.value);
+              }}
               required
             />
           </div>
@@ -55,9 +99,9 @@ const PersonalDataForm = () => {
               id="TypeIdSelect"
               name="TypeId"
               required
-              // onChange={(event) => {
-              //   setTypeId(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setTypeId(event.currentTarget.value);
+              }}
             >
               <option></option>
               <option>CC</option>
@@ -75,9 +119,9 @@ const PersonalDataForm = () => {
               type="number"
               className="form-control"
               placeholder="CC/CE/NIT"
-              // onChange={(event) => {
-              //   setId(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setId(event.currentTarget.value);
+              }}
               required
             />
           </div>
@@ -91,9 +135,9 @@ const PersonalDataForm = () => {
               type="email"
               className="form-control"
               placeholder="correo@ejemplo.com"
-              // onChange={(event) => {
-              //   setMail(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setMail(event.currentTarget.value);
+              }}
               required
             />
           </div>
@@ -107,10 +151,27 @@ const PersonalDataForm = () => {
               type="password"
               autoComplete="off"
               className="form-control"
-              // onChange={(event) => {
-              //   setPass(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setPass(event.currentTarget.value);
+              }}
               placeholder="Contraseña"
+              required
+            />
+          </div>
+        </div>
+        <div className="form_lbl_input_groupe row">
+          <div className="col-sm-6">
+            <label>Confirme contraseña:</label>
+          </div>
+          <div className="col-sm-6">
+            <input
+              type="password"
+              autoComplete="off"
+              className="form-control"
+              onChange={(event) => {
+                setPass2(event.currentTarget.value);
+              }}
+              placeholder="Confirme contraseña"
               required
             />
           </div>
@@ -125,9 +186,9 @@ const PersonalDataForm = () => {
               type="number"
               className="form-control"
               min="0"
-              // onChange={(event) => {
-              //   setPhone1(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setPhone1(event.currentTarget.value);
+              }}
               placeholder="########"
               required
             />
@@ -138,9 +199,9 @@ const PersonalDataForm = () => {
               type="number"
               className="form-control"
               min="0"
-              // onChange={(event) => {
-              //   setPhone2(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setPhone2(event.currentTarget.value);
+              }}
               placeholder="########"
             />
           </div>
@@ -153,13 +214,34 @@ const PersonalDataForm = () => {
             <input
               type="text"
               className="form-control"
-              // onChange={(event) => {
-              //   setAddress(event.currentTarget.value);
-              // }}
+              onChange={(event) => {
+                setAddress(event.currentTarget.value);
+              }}
               placeholder="Indique su dirección"
               required
             />
           </div>
+        </div>
+        {/* Buttons */}
+        <div className="row justify-content-around button-group">
+          <div className="col-sm-6 form_combo_btn_content">
+            <button
+              type="summit"
+              className="btn btn-primary item_combo_btn"
+              form="DataForm"
+              onClick={addUserProponent}
+            >
+              Enviar
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary item_combo_btn"
+              data-bs-dismiss="modal"
+            >
+              Descartar
+            </button>
+          </div>
+          <LogoForForms />
         </div>
       </form>
     </div>

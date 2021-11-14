@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import UserContext from "../context/UserContext";
+import React from 'react';
+//Coolkies - para el cierre de la sesión 
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 //CSS
 import '@styles/home.css';
 
 const CurrentUser = () => {
-    const { state } = useContext(UserContext);
+    const userName = cookies.get('userName');
     return (
-            <label className="home_name"> Bienvenid@ - <span className="home_name_bold"> {state.userName} </span> </label>
+            <label className="home_name"> Bienvenid@ - <span className="home_name_bold"> {userName} </span> </label>
 
     );
 };

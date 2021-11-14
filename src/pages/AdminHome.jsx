@@ -8,16 +8,11 @@ import MenuAdmin from "../containers/MenuAdmin";
 import AdminDatesModal from "../containers/AdminDatesModal"
 import AdminUsersModal from "../containers/AdminUsersModal";
 import AdminProyectsModal from "../containers/AdminProyectsModal";
-//Context
-import UserContext from "../context/UserContext";
-import useUserState from "../hooks/useUserState";
 //CSS
 import "@styles/home.css";
 
 const AdminHome = () => {
-    const userState = useUserState();
     return (
-      <UserContext.Provider value={userState}>
         <div className="home row">
           <CurrentUser />
           <div className="col-sm-6 home_module">
@@ -32,12 +27,11 @@ const AdminHome = () => {
               moduleType={<ImportantDates />}
             ></HomeModule>
           </div>
-        </div>
         <AdminDatesModal />
         <AdminUsersModal />
         <AdminProyectsModal />
         <ExitButton />
-      </UserContext.Provider>
+        </div>
     );
 };
 

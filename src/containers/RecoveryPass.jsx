@@ -24,9 +24,9 @@ const RecoveryPass = () => {
               <input
                 type="email"
                 className="form-control"
-                id="email"
+                id="recovery_email"
                 placeholder="Correo"
-                name="email"
+                name="recovery_email"
                 required
               />
             </div>
