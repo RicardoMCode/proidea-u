@@ -4,7 +4,7 @@ import '@styles/menu.css';
 
 const MenuProponent = () => {
   return (
-    <div>
+    <div className="btn_menu_proponent">
       <button
         type="button"
         className="menu_buton"

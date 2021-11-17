@@ -15,3 +15,8 @@ body {
 .card-title{
     color: #606060;
 }
+
+.calendar_content {
+    text-align: center;
+    overflow: auto;
+}

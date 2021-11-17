@@ -5,7 +5,7 @@ const cookies = new Cookies();
 const ExitButton = () => {
   const closeSession = () => {
     cookies.remove('userName', {path:"/"});
-    cookies.remove('userId', {path:"/"});userType
+    cookies.remove('userId', {path:"/"});
     cookies.remove('userEmail', {path:"/"});
     cookies.remove('userType', {path:"/"});
     window.location.href = "/";

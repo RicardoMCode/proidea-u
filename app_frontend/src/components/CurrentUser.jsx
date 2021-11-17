@@ -6,10 +6,10 @@ const cookies = new Cookies();
 import '@styles/home.css';
 
 const CurrentUser = () => {
-    const userName = cookies.get('userType') +" "+ cookies.get('userName') ;
+    const userName = cookies.get('userName') ;
+    console.log(cookies.get('userType'));
     return (
             <label className="home_name"> Bienvenid@ - <span className="home_name_bold"> {userName} </span></label>
-
     );
 };
 
