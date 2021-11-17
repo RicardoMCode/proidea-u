@@ -1,18 +1,9 @@
 const express = require("express");
-const mysql = require('mysql');
 const router = express.Router();
 //Creamos la conección a la DB
-const con = mysql.createConnection({
-    host: "localhost",
-    database:"proideau_db",
-    user: "user_proideaudb",
-    password: "proideau"
-});
-//Confirmamos que la conección sea efectiva - sólo para prueba de conección
-con.connect(function(err) {  
-    if (err) throw err;  
-    console.log("Connected!");  
-  });  
+const con = require('./conection');
+con.conection;
+
 //Función para crear un usuario proponente en la DB usando HTTP-Pos
 router.post("/", (req, res) => {
     //recibe el objeto "req" con los datos del usuario almacenados en el body
@@ -42,11 +33,15 @@ router.post("/", (req, res) => {
     });
     res.status(200);
 });
-//Función para retornar usuarios
+
+//Función para calidar usuario
 router.get('/:mail/:password', (req, res) =>{
     const {mail, password} = req.params;
     console.log("Trajo" +mail + password);
-    con.query("SELECT user_name, user_id, user_mail FROM users WHERE user_mail = ? AND user_pass = ?;", [mail, password],(err, result)=>{
+    con.query(
+        `(SELECT user_name, user_id, user_mail, 'user' 'admin' FROM users u JOIN admin ad ON u.user_id = ad.admin_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail = '${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')
+        UNION (SELECT user_name, user_id, user_mail, 'user' 'analist' FROM users u JOIN analyst a ON u.user_id = a.analyst_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail = '${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')
+        UNION (SELECT user_name, user_id, user_mail, 'user' 'proponent' FROM users u JOIN proponent p ON u.user_id = p.proponent_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail ='${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')`,(err, result)=>{
         if (err) {
             console.log(err);
         }else if (result==0){
@@ -54,9 +49,10 @@ router.get('/:mail/:password', (req, res) =>{
         }else {
             console.log("Obtuvo usuario");
         }
-        console.log(result);
         res.send(result);
     });
 });
+
+
 
 module.exports = router;

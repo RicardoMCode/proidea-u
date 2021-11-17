@@ -9,15 +9,17 @@ import RegisterIdeaModal from "../containers/RegisterIdeaModal";
 import UpdateProponentDataModal from "../containers/UpdateProponentDataModal";
 import RequestToAdminModal from "../containers/RequestToAdminModal";
 import ExitButton from "../components/ExitButton";
-//CSS
+//
 import "@styles/home.css";
 import ImportantDates from "../containers/ImportantDates";
 import CurrentUser from "../components/CurrentUser";
+import ProjectsList from "../containers/ProjectsList";
 
 const ProponentHome = () => {
+  //Valido que el usuario esté logeado
   useEffect (
     () => {
-      if (!cookies.get('userEmail')) window.location.href = "/";
+      if (!cookies.get('userType')) window.location.href = "/";
     },[]
   );
   return (
@@ -33,7 +35,7 @@ const ProponentHome = () => {
         <div className="col-sm-4 home_module">
           <HomeModule
             title="Ideas presentadas"
-            moduleType={<ImportantDates />}
+            moduleType={<ProjectsList type="proponent" proponent={cookies.get('userId')}/>}
           ></HomeModule>
         </div>
         <div className="col-sm-4 home_module">

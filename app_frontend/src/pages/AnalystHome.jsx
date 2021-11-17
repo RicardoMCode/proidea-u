@@ -1,26 +1,24 @@
 import React from "react";
 import CurrentUser from "../components/CurrentUser";
 import ExitButton from "../components/ExitButton";
-import MenuAnalist from "../containers/MenuProponent";
+import ProjectsList from "../containers/ProjectsList";
+import MenuAnalyst from "../containers/MenuProponent";
 //CSS
 import "@styles/home.css";
-import ProyectsList from "../containers/ProyectsList";
-import ViewProjectModal from "../containers/ViewProjectModal";
 
-const AnalistHome = () => {
+const AnalystHome = () => {
   return (
     <div className="row home_analist">
       <CurrentUser />
       <div className=" col-sm-3 home_menu_analist_content">
-        {/* <MenuAnalist /> */}
+        {/* <MenuAnalyst /> */}
       </div>
       <div className="col-sm-8 home_list_content">
-        <ProyectsList />
+        <ProjectsList type="analyst" proponent={false} />
       </div>
-      <ViewProjectModal />
       <ExitButton />
     </div>
   );
 };
 
-export default AnalistHome;
+export default AnalystHome;

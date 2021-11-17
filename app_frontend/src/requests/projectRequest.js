@@ -33,12 +33,22 @@ function projectRequest() {
     return rta;
   };
 
-  //Metodo GET que consulta el proyecto en la capa API del back
-  async function getProjectById(id) {
-      return await Axios.get(BaseUrl + id)
+  //Metodo GET que consulta todos pos proyectos
+  async function getProjects() {
+    return await Axios.get(BaseUrl);
   }
 
-  return { createProject, getProjectById };
+  //Metodo GET que consulta el proyecto dado el ID
+  async function getProjectById(id) {
+    return await Axios.get(BaseUrl + id);
+  }
+
+  //Metodo GET que consulta proyectos dado el id del proponente
+  async function getProjectByIdUser(id) {
+    return await Axios.get(BaseUrl + "byproponent/" + id);
+  }
+
+  return { createProject, getProjects, getProjectById, getProjectByIdUser};
 }
 
 export default projectRequest;

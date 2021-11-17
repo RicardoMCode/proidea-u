@@ -1,12 +1,12 @@
-const proponentsRuter = require('./proponentsRouter');
 const projectsRouter = require('./projectsRouter');
-const express = require('express')
+const userRouter = require('./userRouter');
+const express = require('express');
 //const analystsRuter = require('./analystsRuter');
 function routerApi(app){
     const router = express.Router();
     app.use('/api/v1', router);
-    router.use('/proponents',proponentsRuter);
     router.use('/projects',projectsRouter);
+    router.use('/user',userRouter);
 }
 
-module.exports = routerApi;
+module.exports = routerApi; 

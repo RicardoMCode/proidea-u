@@ -4,13 +4,11 @@ import LogoU from "../components/LogoU";
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 //Para peticiones a la Api
-import Axios from "axios";
+import userRequest from '../requests/userRequest';
 //Herramientas de gestion programadas
 import userTools from "../tools/userTools";
 //Cifrado de contraseña
 const { cifrarPass } = userTools();
-//HTTP Request 
-const BaseUrl = "http://localhost:3001/api/v1/proponents/";
 //Import CSS
 import "@styles/form.css";
 
@@ -22,18 +20,20 @@ const LoginForm = () => {
         cookies.remove('userName', {path:"/"});
         cookies.remove('userId', {path:"/"});
         cookies.remove('userEmail', {path:"/"});
+        cookies.remove('userType', {path:"/"});
       };
     },[]
     );
   //Creo el estado del login
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
- //Metodo GET que consulta el usuario en la capa API del back
- const validatedUser = async e => {
+  //Instanció request - modulo para las consulta a la BD
+  const { validateUser } = userRequest();
+ const login = async e => {
   if(mail != "" && pass != "")
   {
     e.preventDefault();
-    await Axios.get(BaseUrl+"/"+mail.toLowerCase()+"/"+ cifrarPass(pass))
+    validateUser(mail.toLowerCase(),cifrarPass(pass))
     .then((response) => {
       return response.data[0];
     })
@@ -44,9 +44,11 @@ const LoginForm = () => {
         const userName = response.user_name;
         const userEmail = response.user_mail;
         const userId = response.user_id;
+        const type = response.user;
         cookies.set('userName', userName, {path:"/"});
         cookies.set('userId', userId, {path:"/"});
         cookies.set('userEmail', userEmail, {path:"/"});
+        cookies.set('userType', type, {path:"/"});
         window.location.href = "/proponent-home/";
         }
     })
@@ -90,7 +92,7 @@ const LoginForm = () => {
             <button
               type="summit"
               className="btn btn-success btn-sm "
-              onClick={validatedUser}
+              onClick={login}
             >
               Ingresar
             </button>

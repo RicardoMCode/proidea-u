@@ -39,3 +39,13 @@
 .form_block {
     padding: .8rem;
 }
+
+/*Label description*/
+.InfoProject_Info_title {
+    font-weight: bold;
+}
+/*Textarea info projects*/
+.InfoProject_textArea {
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+}

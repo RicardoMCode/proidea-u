@@ -4,11 +4,21 @@ import Axios from "axios";
 import userTools from "../tools/userTools";
 //Cifrado de contraseña
 const { cifrarPass } = userTools();
-//HTTP Request 
-const BaseUrl = "http://localhost:3001/api/v1/proponents/"
+//HTTP Request
+let BaseUrl = "http://localhost:3001/api/v1/user/";
 function userRequest() {
   //Metodo POS de creación de nuevo usuario
-  const createUser = (role,name,typeId,id,mail,pass,phone1,phone2,address) => {
+  const createUser = (
+    role,
+    name,
+    typeId,
+    id,
+    mail,
+    pass,
+    phone1,
+    phone2,
+    address
+  ) => {
     let rta = false;
     Axios.post(BaseUrl, {
       role: role,
@@ -21,14 +31,18 @@ function userRequest() {
       phone2: phone2,
       address: address,
     })
-      .then(rta=true)
+      .then((rta = true))
       .catch((err) => console.error(err));
-      
+
     return rta;
   };
-  
-  return { createUser};
 
+//Metodo GET validar user y pass, retorna todos los datosS
+  async function validateUser(mail, pass) {
+    return await Axios.get(BaseUrl+"/"+mail+"/"+pass);
+  }
+
+  return { createUser,validateUser };
 }
 
 export default userRequest;
