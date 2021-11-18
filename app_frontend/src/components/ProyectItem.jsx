@@ -28,13 +28,19 @@ const ProyectItem = (props) => {
     setStartDay(date);
     setStatus(status);
   }, []);
+  //Tradusco las fechas del sistema para que sean legibles
+  let dt = new Date(date);
+  let mm = dt.getMonth() + 1;
+  let dd = dt.getDate();
+  let yy = dt.getFullYear();
+  let currentDate = `${yy}-${mm}-${dd}`;
   //Vista proponente
   const TableProponent = () => {
     return (
       <tr>
         <th scope="row">{id}</th>
         <td>{nombre}</td>
-        <td>{date}</td>
+        <td>{currentDate}</td>
         <td>{status}</td>
         <td>
           <button
@@ -56,7 +62,7 @@ const ProyectItem = (props) => {
             <tr>
         <th scope="row">{id}</th>
         <td>{nombre}</td>
-        <td>{date}</td>
+        <td>{currentDate}</td>
         <td>{area}</td>
         <td>{type}</td>
         <td>{status}</td>

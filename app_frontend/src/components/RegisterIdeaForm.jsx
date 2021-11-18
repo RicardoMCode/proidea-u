@@ -11,10 +11,13 @@ import SelectInvestigationLine from "./SelectInvestigationLine";
 
 const RegisterIdeaForm = () => {
   let create = null;
-  var time = Date.now();
-  var date = new Date(time);
-  //Creo los estados del formulario
-  const [datetime, setDatetime] = useState("16-10-2021");
+  let time = Date.now();
+  let date = new Date(time);
+  let mm = date.getMonth() + 1;
+  let dd = date.getDate();
+  let yy = date.getFullYear();
+  let currentDate = `${yy}-${mm}-${dd}`;
+  //Creo los estados del formulario y las variables a usar
   const [area, setArea] = useState("");
   const [type, setType] = useState("");
   const [line, setLine] = useState("");
@@ -26,7 +29,6 @@ const RegisterIdeaForm = () => {
   const { createProject } = projectRequest();
   //Creamos un metodo para agregar el proyecto, se hacen las validaciones y la petición desde los modulos importados
   const addProject = (e) => {
-    setDatetime(date.toLocaleDateString('en-GB'));
     //Valido campos vacios
     if(area == "" || type == "" || line == "" || name == "" || description == "" || obs == "") {
       alert("Debe registrar la información completa en el formulario");
@@ -36,9 +38,12 @@ const RegisterIdeaForm = () => {
       if(chek==1) {
         const status = "Nuevo";
         const id_user = cookies.get('userId');
-        create = createProject(name, area, type, line, description, obs, datetime, status, id_user);
-        if (create === true)
-          alert("Propuesta creada con éxito")
+        create = createProject(name, area, type, line, description, obs, currentDate, status, id_user);
+        if (create === true){
+          e.preventDefault();
+          window.location.reload();
+          alert("Propuesta creada con éxito");
+        }
         else if (create === false) {
           e.preventDefault();
           alert("La información registrada no pudo ser almacenada, valide cada uno de los campos");

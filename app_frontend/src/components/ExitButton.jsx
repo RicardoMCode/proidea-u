@@ -11,7 +11,7 @@ const ExitButton = () => {
     window.location.href = "/";
   }
   return (
-    <div className="home_exit">
+    <>
       <button
         type="button"
         className="home_exit_button"
@@ -22,7 +22,7 @@ const ExitButton = () => {
           </span>
         
       </button>
-    </div>
+    </>
   );
 };
 

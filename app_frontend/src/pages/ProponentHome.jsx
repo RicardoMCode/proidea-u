@@ -8,12 +8,12 @@ import MenuProponent from "../containers/MenuProponent";
 import RegisterIdeaModal from "../containers/RegisterIdeaModal";
 import UpdateProponentDataModal from "../containers/UpdateProponentDataModal";
 import RequestToAdminModal from "../containers/RequestToAdminModal";
-import ExitButton from "../components/ExitButton";
 //
 import "@styles/home.css";
 import ImportantDates from "../containers/ImportantDates";
 import CurrentUser from "../components/CurrentUser";
 import ProjectsList from "../containers/ProjectsList";
+import SessionButtons from "../components/SessionButtons";
 
 const ProponentHome = () => {
   //Valido que el usuario esté logeado
@@ -44,11 +44,11 @@ const ProponentHome = () => {
             moduleType={<ImportantDates />}
           ></HomeModule>
         </div>
+      <SessionButtons />
       </div>
       <RegisterIdeaModal />
       <RequestToAdminModal />
       <UpdateProponentDataModal />
-      <ExitButton />
     </>
   );
 };
