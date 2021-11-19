@@ -1,27 +1,24 @@
 import React from "react";
 import ExitButton from "../components/ExitButton";
+import AdminButton from "./AdminButton";
+import AnalystButton from "./AnalystButton";
+//Coolkies - para el cierre de la sesión
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const SessionButtons = () => {
+  const userType = cookies.get("userType");
   return (
     <div className="row justify-content-end">
       <div className="col-sm-4 session_button">
-        <button
-          type="button"
-          className="home_exit_button"
-          //   onClick={closeSession}
-        >
-          <span>Admin</span>
-        </button>
-        <button
-          type="button"
-          className="home_exit_button"
-          //   onClick={closeSession}
-        >
-          <span>Analist</span>
-        </button>
-        <div className="content_button">
-          <ExitButton />
-        </div>
+        {/* valido tipo de usuario y libero el acceso  */}
+        {userType == "useranalyst" || userType == "useradmin" ? (
+          <AnalystButton />
+        ) : (
+          <div></div>
+        )}
+        {userType == "useradmin" ? <AdminButton /> : <div></div>}
+        <ExitButton />
       </div>
     </div>
   );

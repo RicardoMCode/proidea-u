@@ -1,8 +1,8 @@
 import React from "react";
 import CurrentUser from "../components/CurrentUser";
-import ExitButton from "../components/ExitButton";
 import ProjectsList from "../containers/ProjectsList";
 import MenuAnalyst from "../containers/MenuProponent";
+import SessionButtons from "../components/SessionButtons";
 //CSS
 import "@styles/home.css";
 
@@ -16,7 +16,7 @@ const AnalystHome = () => {
       <div className="col-sm-8 home_list_content">
         <ProjectsList type="analyst" proponent={false} />
       </div>
-      <ExitButton />
+      <SessionButtons />
     </div>
   );
 };

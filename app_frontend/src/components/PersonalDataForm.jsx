@@ -4,6 +4,10 @@ import userRequest from "../requests/userRequest";
 //Import CSS
 import "@styles/form.css";
 import LogoForForms from "./LogoForForms";
+//Herramientas de gestion programadas
+import userTools from "../tools/userTools";
+//Cifrado de contraseña
+const { cifrarPass, emailValidate } = userTools();
 
 const PersonalDataForm = () => {
   //Creo los estados del formulario
@@ -21,28 +25,47 @@ const PersonalDataForm = () => {
   const { createUser } = userRequest();
   //Creamos un metodo para agregar usuario, se hacen las validaciones y la petición desde los modulos importados
   const addUserProponent = (e) => {
-    //Valido campos vacios
-    if(role == "" || name == "" || typeId == "" || id == "" || mail == "" || pass == "" || phone1 == "" || address == "") {
-      alert("Debe registrar la información completa en el formulario");
-    }
-    else {    
-      //Var que valida si se crea o no el usuario
-      let create = null;
-      //Confirmamos la contraseña
-      if(pass2 === pass)
-      {
-        create = createUser(role, name, typeId, id, mail, pass, phone1, phone2, address);
-        if (create === true)
-          alert("Usuario proponente creado con éxito")
-        else if (create === false) 
-          alert("Usuario ya registrado, intentelo de nuevo o dirijase a la opción para recuperar cuenta")
+    //Valido correo electrónico
+    if (emailValidate(mail)) {
+      //Valido campos vacios
+      if (
+        role == "" ||
+        name == "" ||
+        typeId == "" ||
+        id == "" ||
+        mail == "" ||
+        pass == "" ||
+        phone1 == "" ||
+        address == ""
+      ) {
+        alert("Debe registrar la información completa en el formulario");
+      } else {
+        //Var que valida si se crea o no el usuario
+        let create = null;
+        //Confirmamos la contraseña
+        if (pass2 === pass) {
+          create = createUser(
+            role,
+            name,
+            typeId,
+            id,
+            mail,
+            cifrarPass(pass),
+            phone1,
+            phone2,
+            address
+          );
+          if (create === true) alert("Usuario proponente creado con éxito");
+          else if (create === false)
+            alert(
+              "Usuario ya registrado, intentelo de nuevo o dirijase a la opción para recuperar cuenta"
+            );
+        } else {
+          e.preventDefault();
+          alert("Las contraseñas no coinciden");
+        }
       }
-      else
-      {
-         e.preventDefault();
-         alert("Las contraseñas no coinciden");
-      }  
-    } 
+    }
   };
 
   //COMPONENT

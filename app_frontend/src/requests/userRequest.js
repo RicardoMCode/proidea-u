@@ -1,9 +1,5 @@
 //Para peticiones a la Api
 import Axios from "axios";
-//Herramientas de gestion programadas
-import userTools from "../tools/userTools";
-//Cifrado de contraseña
-const { cifrarPass } = userTools();
 //HTTP Request
 let BaseUrl = "http://localhost:3001/api/v1/user/";
 function userRequest() {
@@ -26,7 +22,7 @@ function userRequest() {
       typeId: typeId,
       id: id,
       mail: mail.toLowerCase(),
-      pass: cifrarPass(pass),
+      pass: pass,
       phone1: phone1,
       phone2: phone2,
       address: address,

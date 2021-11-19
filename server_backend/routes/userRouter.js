@@ -40,7 +40,7 @@ router.get('/:mail/:password', (req, res) =>{
     console.log("Trajo" +mail + password);
     con.query(
         `(SELECT user_name, user_id, user_mail, 'user' 'admin' FROM users u JOIN admin ad ON u.user_id = ad.admin_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail = '${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')
-        UNION (SELECT user_name, user_id, user_mail, 'user' 'analist' FROM users u JOIN analyst a ON u.user_id = a.analyst_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail = '${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')
+        UNION (SELECT user_name, user_id, user_mail, 'user' 'analyst' FROM users u JOIN analyst a ON u.user_id = a.analyst_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail = '${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')
         UNION (SELECT user_name, user_id, user_mail, 'user' 'proponent' FROM users u JOIN proponent p ON u.user_id = p.proponent_user_id WHERE u.user_id = (SELECT user_id FROM users WHERE user_mail ='${mail}') AND user_mail = '${mail}' AND user_pass = '${password}')`,(err, result)=>{
         if (err) {
             console.log(err);
