@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-//Coolkies
+//Coolkies de sesión
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 //Components and Containers

@@ -2,7 +2,7 @@ import React from "react";
 import ExitButton from "../components/ExitButton";
 import AdminButton from "./AdminButton";
 import AnalystButton from "./AnalystButton";
-//Coolkies - para el cierre de la sesión
+//Coolkies de sesión
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
