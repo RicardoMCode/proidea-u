@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //request to APi
 import userRequest from "../requests/userRequest";
 //Import CSS
@@ -6,10 +6,27 @@ import "@styles/form.css";
 import LogoForForms from "./LogoForForms";
 //Herramientas de gestion programadas
 import userTools from "../tools/userTools";
+//Coolkies de sesión
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 //Cifrado de contraseña
 const { cifrarPass, emailValidate } = userTools();
 
-const PersonalDataForm = () => {
+const PersonalDataForm = (props) => {
+  //Inicializo los datos si se hace el llamado al componente desde el modulo de actualización y no desde el de registro
+  useEffect(() => {
+    if (props.register == false) {
+      console.log("MDA");
+      var user = cookies.get("currentUser");
+      document.getElementById("name").value = user.user_name;
+      document.getElementById("TypeIdSelect").value = user.user_type_id;
+      document.getElementById("id_num").value = user.user_id;
+      document.getElementById("email_register").value = user.user_mail;
+      document.getElementById("direction").value = user.user_address;
+      document.getElementById("phone1").value = user.user_phone1;
+      document.getElementById("phone2").value = user.user_phone2;
+    }
+  }, []);
   //Creo los estados del formulario
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
@@ -67,35 +84,40 @@ const PersonalDataForm = () => {
       }
     }
   };
-
+  //Metodo para actualizar usuario
+  const updateUserProponent = (e) => {console.log("Update user")}
   //COMPONENT
   return (
     <div>
       <form id="DataForm" className="modal-body" autoComplete="off">
-        <div className="form_lbl_input_groupe row">
-          <div className="col-sm-6">
-            <label htmlFor="RolSelect">Rol:</label>
+        {props.register == false ? (
+          <></>
+        ) : (
+          <div className="form_lbl_input_groupe row">
+            <div className="col-sm-6">
+              <label htmlFor="RolSelect">Rol:</label>
+            </div>
+            <div className="col-sm-6">
+              <select
+                type="text"
+                className="form-select"
+                id="RolSelect"
+                name="Rol"
+                onChange={(event) => {
+                  setRole(event.currentTarget.value);
+                }}
+                required
+              >
+                <option></option>
+                <option>Estudiante</option>
+                <option>Docente</option>
+                <option>Administrativo</option>
+                <option>Empresa</option>
+                <option>Particular</option>
+              </select>
+            </div>
           </div>
-          <div className="col-sm-6">
-            <select
-              type="text"
-              className="form-select"
-              id="RolSelect"
-              name="Rol"
-              onChange={(event) => {
-                setRole(event.currentTarget.value);
-              }}
-              required
-            >
-              <option></option>
-              <option>Estudiante</option>
-              <option>Docente</option>
-              <option>Administrativo</option>
-              <option>Empresa</option>
-              <option>Particular</option>
-            </select>
-          </div>
-        </div>
+        )}
         <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
             <label>Nombre completo:</label>
@@ -104,6 +126,7 @@ const PersonalDataForm = () => {
             <input
               type="text"
               className="form-control"
+              id="name"
               onChange={(event) => {
                 setName(event.currentTarget.value);
               }}
@@ -142,6 +165,7 @@ const PersonalDataForm = () => {
               type="number"
               className="form-control"
               placeholder="CC/CE/NIT"
+              id="id_num"
               onChange={(event) => {
                 setId(event.currentTarget.value);
               }}
@@ -157,6 +181,7 @@ const PersonalDataForm = () => {
             <input
               type="email"
               className="form-control"
+              id="email_register"
               placeholder="correo@ejemplo.com"
               onChange={(event) => {
                 setMail(event.currentTarget.value);
@@ -174,6 +199,7 @@ const PersonalDataForm = () => {
               type="password"
               autoComplete="off"
               className="form-control"
+              id="password_register"
               onChange={(event) => {
                 setPass(event.currentTarget.value);
               }}
@@ -208,6 +234,7 @@ const PersonalDataForm = () => {
             <input
               type="number"
               className="form-control"
+              id="phone1"
               min="0"
               onChange={(event) => {
                 setPhone1(event.currentTarget.value);
@@ -221,6 +248,7 @@ const PersonalDataForm = () => {
             <input
               type="number"
               className="form-control"
+              id="phone2"
               min="0"
               onChange={(event) => {
                 setPhone2(event.currentTarget.value);
@@ -237,6 +265,7 @@ const PersonalDataForm = () => {
             <input
               type="text"
               className="form-control"
+              id="direction"
               onChange={(event) => {
                 setAddress(event.currentTarget.value);
               }}
@@ -252,9 +281,9 @@ const PersonalDataForm = () => {
               type="summit"
               className="btn btn-primary item_combo_btn"
               form="DataForm"
-              onClick={addUserProponent}
+              onClick={props.register == false ? updateUserProponent  : addUserProponent}
             >
-              Enviar
+              {props.register == false ? "Actualizar datos" : "Registrarse"}
             </button>
             <button
               type="button"

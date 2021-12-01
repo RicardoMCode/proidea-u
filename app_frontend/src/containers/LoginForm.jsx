@@ -16,11 +16,9 @@ const LoginForm = () => {
   //Valido que el usuario no venga desde el interior de la app si es así borro las cookies
   useEffect (
     () => {
-      if (cookies.get('userEmail')) {
-        cookies.remove('userName', {path:"/"});
-        cookies.remove('userId', {path:"/"});
-        cookies.remove('userEmail', {path:"/"});
-        cookies.remove('userType', {path:"/"});
+      if (cookies.get('currentUser')) {
+        cookies.remove('currentUser', {path:"/"});
+        cookies.remove('currentDate', {path:"/"});
       };
     },[]
     );
@@ -35,22 +33,23 @@ const LoginForm = () => {
     e.preventDefault();
     validateUser(mail.toLowerCase(),cifrarPass(pass))
     .then((response) => {
-      return response.data[0];
+      return response.data;
     })
     .then((response) => {
       const lengthResponse = Object.keys(response).length;
       if (lengthResponse > 0) {
-        e.preventDefault();
-        const userName = response.user_name;
-        const userEmail = response.user_mail;
-        const userId = response.user_id;
-        const type = response.user;
-        cookies.set('userName', userName, {path:"/"});
-        cookies.set('userId', userId, {path:"/"});
-        cookies.set('userEmail', userEmail, {path:"/"});
-        cookies.set('userType', type, {path:"/"});
+        //Fecha de acceso
+        let create = null;
+        let time = Date.now();
+        let date = new Date(time);
+        let mm = date.getMonth() + 1;
+        let dd = date.getDate();
+        let yy = date.getFullYear();
+        let currentDate = `${yy}-${mm}-${dd}`;
+        cookies.set('currentUser', response, {path:"/"});
+        cookies.set('currentDate', currentDate, {path:"/"});
         window.location.href = "/proponent-home/";
-        }
+        } else throw new SyntaxError("usuario no registrado"); //Genero error por que no retornó nada;
     })
     .catch(err => {
       alert("Credenciales no validas, intente nuevamente o registrese para tener acceso a la aplicación"); 

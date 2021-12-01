@@ -1,6 +1,6 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 //Coolkies
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 const cookies = new Cookies();
 //request to APi
 import projectRequest from "../requests/projectRequest";
@@ -11,12 +11,6 @@ import SelectInvestigationLine from "./SelectInvestigationLine";
 
 const RegisterIdeaForm = () => {
   let create = null;
-  let time = Date.now();
-  let date = new Date(time);
-  let mm = date.getMonth() + 1;
-  let dd = date.getDate();
-  let yy = date.getFullYear();
-  let currentDate = `${yy}-${mm}-${dd}`;
   //Creo los estados del formulario y las variables a usar
   const [area, setArea] = useState("");
   const [type, setType] = useState("");
@@ -30,31 +24,50 @@ const RegisterIdeaForm = () => {
   //Creamos un metodo para agregar el proyecto, se hacen las validaciones y la petición desde los modulos importados
   const addProject = (e) => {
     //Valido campos vacios
-    if(area == "" || type == "" || line == "" || name == "" || description == "" || obs == "") {
+    if (
+      area == "" ||
+      type == "" ||
+      line == "" ||
+      name == "" ||
+      description == "" ||
+      obs == ""
+    ) {
       alert("Debe registrar la información completa en el formulario");
-    }
-    else {
+    } else {
       //1=chek 0=NO chek
-      if(chek==1) {
+      if (chek == 1) {
+        const user = cookies.get('currentUser') ;
         const status = "Nuevo";
-        const id_user = cookies.get('userId');
-        create = createProject(name, area, type, line, description, obs, currentDate, status, id_user);
-        if (create === true){
+        const currentDate = cookies.get("currentDate");
+        create = createProject(
+          name,
+          area,
+          type,
+          line,
+          description,
+          obs,
+          currentDate,
+          status,
+          user.user_id
+        );
+        if (create === true) {
           e.preventDefault();
           window.location.reload();
           alert("Propuesta creada con éxito");
-        }
-        else if (create === false) {
+        } else if (create === false) {
           e.preventDefault();
-          alert("La información registrada no pudo ser almacenada, valide cada uno de los campos");
+          alert(
+            "La información registrada no pudo ser almacenada, valide cada uno de los campos"
+          );
         }
-      }
-      else{
+      } else {
         e.preventDefault();
-        alert("Debe aceptar los términos y condiciones para poder continuar con el proceso");
-      }  
+        alert(
+          "Debe aceptar los términos y condiciones para poder continuar con el proceso"
+        );
+      }
     }
-  }
+  };
   //COMPONENT
   return (
     <div>
@@ -74,18 +87,21 @@ const RegisterIdeaForm = () => {
               }}
               required
             >
-              <option></option>  
+              <option></option>
               <option>Ciencias Agrarias, Ingeniería y Tecnología</option>
               <option>Ciencias Naturales</option>
               <option>Ciencias Sociales</option>
             </select>
           </div>
         </div>
-        <div className="form_lbl_input_groupe row"> 
-        {/* Renderizo la línea de investigación de acuerdo al área seleccionada */}
-          <SelectInvestigationLine set={setLine} area={area}
-          required />
-          
+        <div className="form_lbl_input_groupe row">
+          <div className="col-sm-6">
+            <label htmlFor="LineSelect">Línea de investigación:</label>
+          </div>
+          <div className="col-sm-6">
+            {/* Renderizo la línea de investigación de acuerdo al área seleccionada */}
+            <SelectInvestigationLine set={setLine} area={area} required />
+          </div>
         </div>
         <div className="form_lbl_input_groupe row">
           <div className="col-sm-6">
@@ -162,10 +178,8 @@ const RegisterIdeaForm = () => {
               name="CheckTerminos"
               onChange={() => {
                 //0=chek 1=NO chek
-                if(chek==1)
-                  setChek(0);
-                else
-                  setChek(1);
+                if (chek == 1) setChek(0);
+                else setChek(1);
               }}
             />
             <label className="form-check-label" htmlFor="CheckTerminos">
@@ -175,7 +189,7 @@ const RegisterIdeaForm = () => {
               derechos sobre la idea presentada con fines de investigación.
             </label>
           </div>
-          
+
           {/* Buttons            */}
           <div className="row justify-content-around button-group">
             <div className="col-sm-6 form_combo_btn_content">

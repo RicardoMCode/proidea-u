@@ -40,25 +40,20 @@ const SelectInvestigationLine = (props) => {
   }
   return (
     <>
-      <div className="col-sm-6">
-        <label htmlFor="LineSelect">Línea de investigación:</label>
-      </div>
-      <div className="col-sm-6">
-        <select
-          type="text"
-          className="form-select"
-          name="Line"
-          onChange={(event) => {
-            props.set(event.currentTarget.value);
-          }}
-          required
-        >
-          <option></option>
-          {lines.map((line, index) => {
-            return <option key={index}>{line}</option>;
-          })}
-        </select>
-      </div>
+      <select
+        type="text"
+        className="form-select"
+        name="Line"
+        onChange={(event) => {
+          props.set(event.currentTarget.value);
+        }}
+        required
+      >
+        <option></option>
+        {lines.map((line, index) => {
+          return <option key={index}>{line}</option>;
+        })}
+      </select>
     </>
   );
 };

@@ -7,7 +7,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 const SessionButtons = () => {
-  const userType = cookies.get("userType");
+  const userType = cookies.get('currentUser').user;
   return (
     <div className="row justify-content-end">
       <div className="col-sm-4 session_button">
@@ -17,7 +17,7 @@ const SessionButtons = () => {
         ) : (
           <div></div>
         )}
-        {userType == "useradmin" ? <AdminButton /> : <div></div>}
+        {userType == "useradmin" ? <AdminButton /> : <></>}
         <ExitButton />
       </div>
     </div>

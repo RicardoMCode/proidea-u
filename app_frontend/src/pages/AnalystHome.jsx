@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CurrentUser from "../components/CurrentUser";
 import ProjectsList from "../containers/ProjectsList";
-import MenuAnalyst from "../containers/MenuProponent";
+import MenuAnalyst from "../containers/MenuAnalyst";
 import SessionButtons from "../components/SessionButtons";
 //Coolkies de sesión
 import Cookies from "universal-cookie";
@@ -10,7 +10,7 @@ const cookies = new Cookies();
 import "@styles/home.css";
 
 const AnalystHome = () => {
-  const userType = cookies.get("userType");
+  const userType = cookies.get('currentUser').user;
   //Valido usuario analista
   useEffect(() => {
     if (userType !== "useranalyst")
@@ -20,7 +20,7 @@ const AnalystHome = () => {
     <div className="row home_analist">
       <CurrentUser />
       <div className=" col-sm-3 home_menu_analist_content">
-        {/* <MenuAnalyst /> */}
+        <MenuAnalyst />
       </div>
       <div className="col-sm-8 home_list_content">
         <ProjectsList type="analyst" proponent={false} />

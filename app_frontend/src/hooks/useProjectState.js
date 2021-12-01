@@ -11,6 +11,11 @@ const useProjectState = () => {
   const [obs, setObs] = useState(null);
   const [startDay, setStartDay] = useState(null);
   const [status, setStatus] = useState(null);
+  const [comments, setComments] = useState([]);
+  function addComments(new_comentary){
+    const new_coments = [...comments,...new_comentary];
+    setComments(new_coments);
+  };
   return {
     id,
     setId,
@@ -30,6 +35,9 @@ const useProjectState = () => {
     setStartDay,
     status,
     setStatus,
+    comments, 
+    setComments,
+    addComments
   };
 };
 

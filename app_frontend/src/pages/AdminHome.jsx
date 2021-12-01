@@ -15,7 +15,7 @@ const cookies = new Cookies();
 import "@styles/home.css";
 
 const AdminHome = () => {
-  const userType = cookies.get("userType");
+  const userType = cookies.get('currentUser').user;
   //Valido usuario analista
   useEffect(() => {
     if (userType !== "useradmin") {window.location.href = "/proponent-home"; alert("Acceso denegado");}

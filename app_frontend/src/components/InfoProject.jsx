@@ -4,10 +4,11 @@ import ProjectContext from "../context/ProjectContext";
 
 const InfoProject = () => {
   //Contexto para recibir los datos del proyecto seleccionado
-  const {id,area,linea,type,name,description,obs,startDay,status} = useContext(ProjectContext);
-  
+  const { id, area, linea, type, name, description, obs, startDay, status } =
+    useContext(ProjectContext);
+
   return (
-    <>
+    <div className="info_group">
       <div className="form_lbl_lbl_groupe row">
         <div className="col-sm-4">
           <label className="InfoProject_Info_title">
@@ -80,7 +81,7 @@ const InfoProject = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

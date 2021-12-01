@@ -1,0 +1,28 @@
+.comentary {
+    background-color: #D9E3E8 ;
+    padding: 10px 22px 10px 22px;
+    border-radius: .5rem;
+}
+.comentary_title {
+    text-align: center;
+    margin: 15px 0 15px 0;
+}
+.comentary_lbl {
+    margin-left:15px;
+}
+.info_comentary {
+    font-style: oblique;
+    display: block;
+}
+.text_comentary {
+    font-weight:lighter;}
+.info_comentary_date {
+    font-style: oblique;
+    display: block;
+    font-weight:lighter;
+    text-align: end;
+}
+.comentary_buttons {
+    display:flex;
+    justify-content: space-between;
+}

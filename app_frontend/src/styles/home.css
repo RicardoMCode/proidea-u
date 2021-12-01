@@ -69,7 +69,25 @@
     max-height:60vh;
     overflow: auto;
     margin: 10px;  
+    border-radius: .2rem;
 }
+.th_date{
+    width: 9rem;
+}
+.th_name{
+    width: 11rem;
+}
+.th_status{
+    width: 8rem;
+}
+.th_id{
+    text-align: center;
+    width: 2rem;
+}
+.table-active th {
+    padding: 1rem 8px 1rem 8px;
+}
+/*analist*/
 
 .home_menu_analist_content {
     min-height: 300px;
@@ -77,6 +95,11 @@
     border: solid #999999 2px;
     box-shadow: -4px 4px 68px -10px rgba(0,0,0,0.75);
     margin-bottom: 15px;
+    padding: 2rem 1rem;
+    color: #DDDECB;
+}
+.filter_content{
+    padding: 0 10%;
 }
 
 .home_analist {
@@ -85,3 +108,26 @@
     display: flex;
     justify-content: space-around;
 } 
+.home_menu_analist_title {
+    text-align: center;
+    padding-bottom: 1REM;
+}
+.home_menu_analist_lbl {
+    padding: 0 1rem;
+}
+.home_menu_analist_filterItem {
+    padding: 0 1rem 1rem 0;
+}
+.home_menu_analist_groupe {
+    display: block;
+}
+.home_menu_analist_groupe select {
+    margin: 1rem;
+    min-width: 15rem;
+}
+
+.btn_filter{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}

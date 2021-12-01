@@ -8,14 +8,14 @@ const AnalystButton = () => {
         className="home_session_button"
         onClick={()=>window.location.href = "/proponent-home"}
       >
-        <span>Proponent</span>
+        <span>Proponente</span>
       </button>
       <button
         type="button"
         className="home_session_button"
         onClick={()=>window.location.href = "/analyst-home"}
       >
-        <span>Analyst</span>
+        <span>Analista</span>
       </button>
     </>
   );

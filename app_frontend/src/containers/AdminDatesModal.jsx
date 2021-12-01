@@ -1,4 +1,5 @@
 import React from 'react';
+import ImportantDates from './ImportantDates';
 
 const AdminDatesModal = () => {
     return (
@@ -14,6 +15,7 @@ const AdminDatesModal = () => {
               <br />
               <h4 className="modal-title text-center">Administración de fechas</h4>
               <br />
+              <ImportantDates />
             </div>
           </div>
         </div>

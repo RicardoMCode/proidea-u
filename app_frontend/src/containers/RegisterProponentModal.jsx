@@ -20,7 +20,7 @@ const RegisterProponentModal = () => {
             <h4 className="modal-title text-center">Formulario de registro</h4>
             <br />
           </div>
-          <PersonalDataForm />
+          <PersonalDataForm register = {true} />
         </div>
       </div>
     </div>

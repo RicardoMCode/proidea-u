@@ -7,12 +7,13 @@ const ProjectListAnalystView = (props) => {
     <table className="table table-hover">
       <thead>
         <tr className="table-active">
-          <th scope="col">#</th>
-          <th scope="col">Nombre del proyecto</th>
-          <th scope="col">Fecha de creación</th>
+          <th scope="col"><div className="th_id"># Id</div></th>
+          <th scope="col"><div className="th_name">Nombre del proyecto</div></th>
+          <th scope="col"><div className="th_date">Fecha de creación</div></th>
           <th scope="col">Área</th>
+          <th scope="col">Linea</th>
           <th scope="col">Tipo</th>
-          <th scope="col">Estado</th>
+          <th scope="col"><div className="th_status">Estado</div></th>
           <th scope="col"></th>
         </tr>
       </thead>

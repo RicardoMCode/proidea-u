@@ -1,5 +1,4 @@
 import React from 'react';
-import LogoForForms from '../components/LogoForForms';
 import PersonalDataForm from '../components/PersonalDataForm';
 
 const UpdateProponentDataModal = () => {
@@ -18,7 +17,7 @@ const UpdateProponentDataModal = () => {
               <h4 className="modal-title text-center">Formulario de actualización de datos</h4>
               <br />
             </div>
-            <PersonalDataForm />
+            <PersonalDataForm register = {false}/>
           </div>
         </div>
       </div>

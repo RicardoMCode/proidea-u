@@ -3,7 +3,7 @@ import Axios from "axios";
 //HTTP Request
 const BaseUrl = "http://localhost:3001/api/v1/projects/";
 function projectRequest() {
-  //Metodo POS de creación de nuevo proyecto name, area, type, line, description, today, status, id_user
+  //Metodo POS de creación de nuevo proyecto 
   const createProject = (
     name,
     area,
@@ -48,7 +48,20 @@ function projectRequest() {
     return await Axios.get(BaseUrl + "byproponent/" + id);
   }
 
-  return { createProject, getProjects, getProjectById, getProjectByIdUser};
+  //Metodo PUT de cambio de estado de un proyecto
+  const changeStatus = ( id, status, comentary) => {
+    let rta = false;
+    Axios.put(BaseUrl + id, {
+      status: status,
+      comentary: comentary
+    })
+      .then((rta = true))
+      .catch((err) => console.error(err));
+
+    return rta;
+  };
+
+  return { createProject, getProjects, getProjectById, getProjectByIdUser, changeStatus};
 }
 
 export default projectRequest;

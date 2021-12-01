@@ -8,18 +8,18 @@ import MenuProponent from "../containers/MenuProponent";
 import RegisterIdeaModal from "../containers/RegisterIdeaModal";
 import UpdateProponentDataModal from "../containers/UpdateProponentDataModal";
 import RequestToAdminModal from "../containers/RequestToAdminModal";
-//
-import "@styles/home.css";
 import ImportantDates from "../containers/ImportantDates";
 import CurrentUser from "../components/CurrentUser";
 import ProjectsList from "../containers/ProjectsList";
 import SessionButtons from "../components/SessionButtons";
+//CSS
+import "@styles/home.css";
 
 const ProponentHome = () => {
   //Valido que el usuario esté logeado
   useEffect (
     () => {
-      if (!cookies.get('userType')) window.location.href = "/";
+      if (!cookies.get('currentUser')) window.location.href = "/";
     },[]
   );
   return (
@@ -35,7 +35,7 @@ const ProponentHome = () => {
         <div className="col-sm-4 home_module">
           <HomeModule
             title="Ideas presentadas"
-            moduleType={<ProjectsList type="proponent" proponent={cookies.get('userId')}/>}
+            moduleType={<ProjectsList type="proponent" proponent={cookies.get('currentUser').user_id}/>}
           ></HomeModule>
         </div>
         <div className="col-sm-4 home_module">

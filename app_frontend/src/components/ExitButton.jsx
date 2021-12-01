@@ -4,10 +4,8 @@ import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 const ExitButton = () => {
   const closeSession = () => {
-    cookies.remove('userName', {path:"/"});
-    cookies.remove('userId', {path:"/"});
-    cookies.remove('userEmail', {path:"/"});
-    cookies.remove('userType', {path:"/"});
+    cookies.remove('currentUser', {path:"/"});
+    cookies.remove('currentDate', {path:"/"});
     window.location.href = "/";
   }
   return (

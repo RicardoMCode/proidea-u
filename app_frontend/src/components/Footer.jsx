@@ -9,7 +9,7 @@ const Footer = () => {
         <div
           className="text-center p-3 mt-4"
         >
-        <span> © 2021 Copyright:
+        <span> © 2021 Copyleft:
           <span className = "fw-bolder"> NRMV </span>
           - Todos los derechos reservados
         </span>
