@@ -16,7 +16,6 @@ const PersonalDataForm = (props) => {
   //Inicializo los datos si se hace el llamado al componente desde el modulo de actualización y no desde el de registro
   useEffect(() => {
     if (props.register == false) {
-      console.log("MDA");
       var user = cookies.get("currentUser");
       document.getElementById("name").value = user.user_name;
       document.getElementById("TypeIdSelect").value = user.user_type_id;

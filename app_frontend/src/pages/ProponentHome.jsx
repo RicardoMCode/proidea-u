@@ -17,11 +17,9 @@ import "@styles/home.css";
 
 const ProponentHome = () => {
   //Valido que el usuario esté logeado
-  useEffect (
-    () => {
-      if (!cookies.get('currentUser')) window.location.href = "/";
-    },[]
-  );
+  if (cookies.get('session')=="false") window.location.href = "/";
+  else 
+  {
   return (
     <>
       <div className="home row">
@@ -51,6 +49,7 @@ const ProponentHome = () => {
       <UpdateProponentDataModal />
     </>
   );
+}
 };
 
 export default ProponentHome;

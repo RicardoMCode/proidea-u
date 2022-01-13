@@ -19,6 +19,8 @@ const LoginForm = () => {
       if (cookies.get('currentUser')) {
         cookies.remove('currentUser', {path:"/"});
         cookies.remove('currentDate', {path:"/"});
+        cookies.set('session', false, {path:"/"});
+        location.reload();
       };
     },[]
     );
@@ -46,6 +48,7 @@ const LoginForm = () => {
         let dd = date.getDate();
         let yy = date.getFullYear();
         let currentDate = `${yy}-${mm}-${dd}`;
+        cookies.set('session', true, {path:"/"});
         cookies.set('currentUser', response, {path:"/"});
         cookies.set('currentDate', currentDate, {path:"/"});
         window.location.href = "/proponent-home/";
@@ -62,7 +65,7 @@ const LoginForm = () => {
       <div className="card-body">
         <h4 className="card-title">Ingreso al sistema</h4>
         <hr />
-        <form>
+        <form method="post">
           <div className="form_lbl_inpt_groupe">
             <input
               type="email"
